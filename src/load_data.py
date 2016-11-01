@@ -40,11 +40,17 @@ def save_all_stocks_transaction_history():
 		df_c.to_csv(file_path)
 		print "successfully get the transaction history for stock: " + str(c)
 
+def save_single_stock(code):
+	dir_path = os.getcwd()
+	df_c = ts.get_hist_data(code) 
+	file_path = dir_path + '/../data/stocks/' + str(code) + '.csv'
+	df_c.to_csv(file_path)
+	print "successfully get the transaction history for stock: " + str(code)
 
 if __name__ == '__main__':
 	#save_all_stocks_info()
-	save_all_stocks_transaction_history()
-
+	#save_all_stocks_transaction_history()
+	save_single_stock("hs300")
 
 
 
